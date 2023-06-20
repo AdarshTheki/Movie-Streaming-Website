@@ -1,6 +1,6 @@
 # Netflix Streaming Platform Website
 
-![Netflix Logo](netflix-logo.png)
+![Netflix Logo](src/assets/netflix_logo.png)
 
 The Netflix Streaming Platform Website is a web application that aims to replicate the popular streaming platform, Netflix. It provides users with the ability to browse and stream a wide range of movies and TV shows on-demand. The website is built using HTML, CSS, and JavaScript, with additional libraries and frameworks as needed.
 
