@@ -1,0 +1,28 @@
+.filterContainer {
+    padding-top: 4rem;
+    padding-bottom: 1rem;
+    max-width: 95%;
+    overflow: hidden;
+    margin: 0 auto;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filterOption select {
+    margin-left: 5px;
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 1vmax;
+    text-transform: capitalize;
+    cursor: pointer;
+}
+
+.infinityScreen {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+}
+

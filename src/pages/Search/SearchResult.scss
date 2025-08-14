@@ -1,0 +1,35 @@
+.searchResult {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.searchFilter {
+    padding-top: 4rem;
+    padding-bottom: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+
+    button,
+    select {
+        cursor: pointer;
+        padding: 0.4rem 0.8rem;
+        border: none;
+        border-radius: 1vmax;
+        font-weight: 600;
+        text-transform: capitalize;
+        transition: background 0.3s ease-in-out;
+
+        &:hover {
+            background: var(--red);
+            color: var(--white);
+        }
+    }
+
+    span {
+        font-size: 1.2rem;
+        color: var(--red);
+        font-weight: 800;
+        text-transform: uppercase;
+    }
+}

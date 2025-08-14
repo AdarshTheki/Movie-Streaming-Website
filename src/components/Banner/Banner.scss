@@ -1,0 +1,160 @@
+@use '../../assets/global.scss';
+/* 
+===========
+Banner Image Slider
+===========
+*/
+.slider_leftArrow,
+.slider_rightArrow {
+  position: absolute;
+  top: 40%;
+  cursor: pointer;
+  border-radius: 100vmax;
+  font-size: 1.5rem;
+  z-index: 1;
+
+  svg {
+    color: var(--white);
+    transition: color 0.3s ease-in;
+    &:hover {
+      color: var(--red);
+    }
+  }
+}
+
+.slider_leftArrow {
+  left: 0px;
+}
+
+.slider_rightArrow {
+  right: 0px;
+}
+
+.banner-width {
+  margin-inline: auto;
+  padding: 90px 0 0;
+  width: 90vw;
+  @include global.md {
+    width: 80vw;
+  }
+}
+
+/*
+==========
+Slider Image
+=========
+*/
+.slider-image {
+  position: relative;
+  overflow: hidden;
+  padding: 20px 30px;
+  max-width: 270px;
+
+  @include global.sm {
+    max-width: 490px;
+  }
+
+  .container-slide {
+    display: flex;
+    overflow: hidden;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+
+    .card {
+      scroll-snap-align: start;
+      opacity: 0.4;
+      cursor: pointer;
+      border-radius: 10px;
+      transition: all 0.3s ease-in-out !important;
+      img {
+        border-radius: 10px;
+        border: 1px solid var(--black-800);
+      }
+      &:hover,
+      &.active {
+        opacity: 1;
+        img {
+          border: 1px solid var(--white);
+        }
+      }
+    }
+  }
+}
+
+/*
+==========
+Banner Detail
+=========
+*/
+.banner__contents {
+  // padding: 40px 20px 30px;
+}
+.banner__contents .release {
+  text-transform: uppercase;
+}
+.banner__title {
+  font-family: cursive;
+  text-transform: uppercase;
+  font-size: calc(2rem + 4vw);
+  line-height: 1;
+  font-weight: 800;
+  margin-bottom: 10px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  height: 150px;
+  overflow: hidden;
+}
+.banner__description {
+  padding-top: 20px;
+  line-height: 1.2;
+  font-weight: 300;
+  font-size: 1.1rem;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  height: 130px;
+  overflow: hidden;
+  color: var(--white);
+  @include global.md {
+    max-width: 70vw;
+  }
+}
+
+.banner__detail {
+  text-transform: capitalize;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  text-align: left;
+  font-size: 1.2rem;
+  color: #aaa;
+}
+.banner__detail p {
+  color: var(--white);
+}
+.banner__detail span {
+  color: var(--red);
+  font-weight: 600;
+}
+
+.banner__buttons {
+  max-width: 300px;
+  display: flex;
+  place-content: space-between;
+}
+
+.banner__buttons .btn {
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--white);
+  padding: 10px 20px;
+  border-radius: 100vmax;
+  transition: transform 0.2s ease-out;
+}
+.banner__buttons .btn:hover {
+  transform: scaleX(1.1);
+  box-shadow: 0px 1px 12px 1px var(--gray);
+}

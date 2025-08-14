@@ -1,0 +1,82 @@
+/* 
+=========
+creditsScreen
+=========
+*/
+.credits__screen {
+  padding-top: 5rem;
+  color: var(--white);
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 15px;
+}
+.credits__screen h1 {
+  text-transform: capitalize;
+  font-weight: 400;
+  margin: auto;
+  text-align: center;
+  width: 80%;
+  border-bottom: 2px solid var(--white);
+  margin-bottom: 10px;
+}
+/* 
+=========
+Casts
+=========
+*/
+.credits__cast {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+@media (max-width: 35em) {
+  .credits__screen {
+    display: block;
+  }
+}
+
+/* 
+==========
+Crew
+==========
+*/
+.profile-image {
+  border: 2px solid var(--green);
+  background-color: var(--black-700);
+  width: 180px;
+  height: 230px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 1vmax;
+  position: relative;
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+}
+.profile-image:hover {
+  transform: scale(0.95);
+}
+.profile-image .cast-names {
+  width: 80%;
+  position: absolute;
+  left: 5%;
+  bottom: 40px;
+  text-decoration: none;
+  color: var(--white);
+  text-align: center;
+  font-weight: 600;
+  font-size: 24px;
+  transition: 0.3s ease-out;
+}
+.profile-image .cast-names:hover {
+  color: var(--red);
+}
+.cast-popularity {
+  position: absolute;
+  left: 25%;
+  bottom: 10px;
+  font-weight: 600;
+  color: var(--red);
+}

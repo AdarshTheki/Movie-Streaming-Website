@@ -1,0 +1,79 @@
+.UserProfile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: #fff;
+}
+
+.UserProfile-content {
+  background-color: #333;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 500px;
+
+  .btn {
+    padding: 5px 15px;
+    margin: 10px auto;
+    border: none;
+    border-radius: 1vmax;
+    background-color: #f5f5f5;
+    color: #111;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease-out;
+
+    &:hover {
+      background-color: #111;
+      color: #fff;
+      transform: scale(0.95);
+    }
+  }
+}
+
+.logged {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  margin-top: 20px;
+  .title {
+    font-size: 2rem;
+  }
+  .btn {
+    font-size: 2rem;
+    color: blue;
+    text-decoration: none;
+  }
+}
+
+.UserProfile-avatar img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.UserProfile-details {
+  flex: 1;
+
+  span {
+    display: inline-block;
+    width: 60px;
+    font-weight: 600;
+    color: #7091f5;
+  }
+}
+
+.UserProfile h1 {
+  margin-bottom: 10px;
+}
+
+.UserProfile-notLoggedIn {
+  text-align: center;
+  font-size: 2rem;
+  text-transform: capitalize;
+}

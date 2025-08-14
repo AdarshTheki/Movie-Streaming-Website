@@ -1,0 +1,95 @@
+@use '../../assets/global.scss';
+
+.videosSection {
+  position: relative;
+  .sectionHeading {
+    font-size: 24px;
+    color: white;
+    margin-bottom: 25px;
+  }
+  .videos {
+    display: flex;
+    gap: 10px;
+    overflow: hidden;
+    overflow-x: auto;
+    margin-right: -20px;
+    margin-left: -20px;
+    padding: 0 20px;
+    &::-webkit-scrollbar {
+      height: 10px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: var(--black-700);
+    }
+    @include global.md {
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+    .videoItem {
+      width: 180px;
+      flex-shrink: 0;
+      @include global.md {
+        width: 25%;
+      }
+      .videoThumbnail {
+        cursor: pointer;
+        margin-bottom: 15px;
+        position: relative;
+        img {
+          width: 100%;
+          display: block;
+          border-radius: 12px;
+          transition: all 0.7s ease-in-out;
+        }
+        svg {
+          position: absolute;
+          z-index: 2;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 50px;
+          height: 50px;
+        }
+        .triangle {
+          stroke-dasharray: 240;
+          stroke-dashoffset: 480;
+          stroke: white;
+          transform: translateY(0);
+          transition: all 0.7s ease-in-out;
+        }
+        .circle {
+          stroke: white;
+          stroke-dasharray: 650;
+          stroke-dashoffset: 1300;
+          transition: all 0.5s ease-in-out;
+        }
+        &:hover {
+          img {
+            opacity: 0.5;
+          }
+          .triangle {
+            stroke-dashoffset: 0;
+            opacity: 1;
+            stroke: var(--red);
+            animation: trailorPlay 0.7s ease-in-out;
+          }
+          .circle {
+            stroke-dashoffset: 0;
+            stroke: var(--red);
+          }
+        }
+      }
+      .videoTitle {
+        text-align: center;
+        color: white;
+        font-size: 14px;
+        font-weight: normal;
+        @include global.md {
+          font-size: 20px;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}

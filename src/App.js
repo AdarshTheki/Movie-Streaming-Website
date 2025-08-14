@@ -1,59 +1,76 @@
-import React from "react";
-import requests from "./Server/Requests.js";
-import Nav from "./Components/Nav.js";
-import Banner from "./Components/Banner.js";
-import Row from "./Components/Row.js";
-import "./App.css";
+import { useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  NotFound,
+  Credits,
+  Details,
+  Explore,
+  Home,
+  Profile,
+  Search,
+  Login,
+  SignUp,
+} from './pages';
+import {
+  fetchBannerLists,
+  fetchGenreMovieLists,
+  fetchGenreTvLists,
+} from './redux/fetchDataSlice';
+import { login, logout } from './redux/authSlice';
+import Nav from './components/Header/Nav';
+import GoToButton from './components/GoToButton/GoToButton';
+import { auth } from './config/firebase';
 
 function App() {
+  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state?.user);
+
+  useEffect(() => {
+    const unSubscribed = () => {
+      auth.onAuthStateChanged((userAuth) => {
+        if (userAuth) {
+          dispatch(
+            login({
+              uid: userAuth.uid,
+              email: userAuth.email,
+              emailVerified: userAuth.emailVerified,
+              displayName: userAuth.displayName,
+              photoURL: userAuth?.photoURL,
+              lastSignInTime: userAuth.metadata.lastSignInTime,
+            })
+          );
+        } else {
+          dispatch(logout(null));
+        }
+      });
+    };
+    unSubscribed();
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(fetchBannerLists());
+    dispatch(fetchGenreMovieLists());
+    dispatch(fetchGenreTvLists());
+  }, [dispatch]);
+
   return (
-    <div className="App">
-      {/* NavBar */}
-      <Nav/>
-      {/* Banner */}
-      <Banner />
-      {/* Rows of the Shows*/}
-      <Row
-        title='Netflix Originals'
-        fetchUrl={requests.fetchNetflixOriginals}
-        isLargeRow={true}
-      />
-      <Row
-        title='Trending Now'
-        fetchUrl={requests.fetchTrending}
-        isLargeRow={true}
-      />
-      <Row
-        title='Top Rated'
-        fetchUrl={requests.fetchTopRated}
-        isLargeRow={true}
-      />
-      <Row
-        title='Action Movies'
-        fetchUrl={requests.fetchActionMovies}
-        isLargeRow={true}
-      />
-      <Row
-        title='Comedy Movies'
-        fetchUrl={requests.fetchComedyMovies}
-        isLargeRow={true}
-      />
-      <Row
-        title='Horror Movies'
-        fetchUrl={requests.fetchHorrorMovies}
-        isLargeRow={true}
-      />
-      <Row
-        title='Romance Movies'
-        fetchUrl={requests.fetchRomanceMovies}
-        isLargeRow={true}
-      />
-      <Row
-        title='Documentaries'
-        fetchUrl={requests.fetchDocumentaries}
-        isLargeRow={true}
-      />
+    <div>
+      <Nav />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="profile" element={!user?.uid ? <Login /> : <Profile />} />
+        <Route path="login" element={<Login />} />
+        <Route path="signup" element={<SignUp />} />
+        <Route path="search/:query" element={<Search />} />
+        <Route path="explore/:mediaType" element={<Explore />} />
+        <Route path="show/:mediaType/:id" element={<Details />} />
+        <Route path="credits/:id/:id" element={<Credits />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+      <GoToButton />
     </div>
   );
 }
+
 export default App;

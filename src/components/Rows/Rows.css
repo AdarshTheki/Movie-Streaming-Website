@@ -1,0 +1,88 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 10px;
+}
+.flex {
+  display: flex;
+  gap: 10px;
+}
+.row__container {
+  padding-top: 10px;
+  scroll-snap-type: x mandatory;
+}
+.row__container #leftArrow,
+.row__container #rightArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #111;
+  padding: 5px;
+  border-radius: 50%;
+  position: absolute;
+  top: 30%;
+  cursor: pointer;
+  z-index: 10;
+  transition: transform 0.3s ease-in-out;
+}
+#leftArrow {
+  left: 0px;
+}
+#rightArrow {
+  right: 0px;
+}
+#leftArrow:active,
+#rightArrow:active {
+  background: #333;
+}
+
+.rowPostContainer {
+  display: flex;
+  flex-direction: column;
+  scroll-snap-align: start;
+}
+.rowPoster {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1vmax;
+  margin-inline: auto;
+}
+.rowPoster .rowImg {
+  max-height: 300px;
+  width: 100%;
+  min-width: 170px;
+  border-radius: 1vmax;
+  object-fit: contain;
+}
+.rowDetails {
+  text-align: center;
+  min-width: 120px;
+}
+.rowTitle {
+  text-decoration: none;
+  color: var(--white);
+  font-weight: 500;
+  font-size: 18px;
+  transition: all 0.2s ease-out;
+}
+.rowTitle:active,
+.rowTitle:hover {
+  color: var(--green);
+}
+
+.rowReleaseDate {
+  text-transform: capitalize;
+  color: var(--gray);
+  font-size: 14px;
+}
+
+.genre {
+  position: absolute;
+  bottom: 10px;
+  right: 2px;
+  padding: 2px 5px;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: var(--red);
+  color: var(--white);
+}
