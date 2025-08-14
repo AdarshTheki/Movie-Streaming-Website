@@ -6,35 +6,29 @@ A web application for streaming TV shows and movies, built with React, using the
 
 ### Features:
 
--   TV and Movie listing with category-wise filtering
--   Detailed information pages for each title
--   Related and recommended titles
--   Search functionality
--   Filter by genre, year, and rating
--   Infinite scroller
--   Slider show for featured titles
--   Watched trailers
+- TV and Movie listing with category-wise filtering
+- Detailed information pages for each title
+- Related and recommended titles
+- Search functionality
+- Filter by genre, year, and rating
+- Infinite scroller
+- Slider show for featured titles
+- Watched trailers
 
 ### API Used:
 
--   TMDB API `https://api.themoviedb.org/3`
-
-### Hosted URL:
-
--   [Netlify Host Link 1](https://react-stream-web-app.netlify.app)
--   [Firebase Host Link 2](https://netflix-59621.web.app)
--   [Firebase Host Link 3](https://netflix-59621.firebaseapp.com)
+- TMDB API `https://api.themoviedb.org/3`
 
 ### Technologies Used:
 
--   React
--   Axios
--   React-Player
--   SASS
--   Firebase (for hosting)
--   React-Loading-Skeleton
--   React-Icons
--   Redux Toolkit
+- React
+- Axios
+- React-Player
+- SASS
+- Firebase (for hosting)
+- React-Loading-Skeleton
+- React-Icons
+- Redux Toolkit
 
 ### Screenshot:
 
@@ -42,19 +36,19 @@ A web application for streaming TV shows and movies, built with React, using the
 
 ### Setup:
 
--   Clone the repository
--   Run npm install to install dependencies
--   Create a Firebase project and set up hosting
--   Set up TMDB API key
--   Run npm start to start the application
+- Clone the repository
+- Run npm install to install dependencies
+- Create a Firebase project and set up hosting
+- Set up TMDB API key
+- Run npm start to start the application
 
 ### License:
 
--   [MIT License]()
+- [MIT License]()
 
 ### Author:
 
--   [Adarsh Verma]()
+- [Adarsh Verma]()
 
 ### Image Size Adjust:
 
